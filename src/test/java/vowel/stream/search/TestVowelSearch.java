@@ -61,4 +61,28 @@ public class TestVowelSearch {
     public void testIllegalArgument() {
         VowelSearch.firstChar(null);
     }
+
+    @Test
+    public void testWithWhiteSpacesAtTheBeginning() {
+        StreamImpl stream = new StreamImpl("             aAbBABacafé");
+        Optional<Character> opt = VowelSearch.firstChar(Optional.of(stream));
+        assertTrue(opt.isPresent());
+        assertEquals(Character.valueOf('é'), opt.get());
+    }
+
+    @Test
+    public void testWithWhiteSpacesAtTheEnd() {
+        StreamImpl stream = new StreamImpl("aAbBABacafé       ");
+        Optional<Character> opt = VowelSearch.firstChar(Optional.of(stream));
+        assertTrue(opt.isPresent());
+        assertEquals(Character.valueOf('é'), opt.get());
+    }
+
+    @Test
+    public void testWithWhiteSpaces() {
+        StreamImpl stream = new StreamImpl("  aAbBA  Baca  fé       ");
+        Optional<Character> opt = VowelSearch.firstChar(Optional.of(stream));
+        assertTrue(opt.isPresent());
+        assertEquals(Character.valueOf('é'), opt.get());
+    }
 }
