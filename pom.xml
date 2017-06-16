@@ -15,6 +15,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>${maven.exec.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -40,11 +47,16 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>app.Application</mainClass>
+                            <mainClass>vowel.stream.app.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven.exec.version}</version>
             </plugin>
         </plugins>
     </build>
@@ -52,6 +64,7 @@
     <properties>
         <junit.version>4.12</junit.version>
         <maven.jar.version>3.0.2</maven.jar.version>
+        <maven.exec.version>1.6.0</maven.exec.version>
     </properties>
 
 
