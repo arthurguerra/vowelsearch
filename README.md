@@ -28,3 +28,9 @@ For more information about the dependencies required by this project, please, ch
      3.  Shift left the triplet by 1 position to make room for the next character in the stream
 5. If the queue is empty, it means that there are no unique vowel characters in the strem
 6. If the queue is NOT empty, return the first element of the queue, which is the first unique vowel seen in the stream
+
+## Run Unit Tests
+
+After cloning the project repository, run:
+
+    mvn test
