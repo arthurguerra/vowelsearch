@@ -28,6 +28,10 @@ public class VowelSearch {
         return triplet != null && isVowel(triplet[0]) && isConsonant(triplet[1]) && isVowel(triplet[2]);
     }
 
+    public static boolean isValidChar(char c) {
+        return c != ' ' && c != '\n' && c != '\t';
+    }
+
     /**
      * Finds the first unique vowel char coming after a consonant that comes after a vowel.
      * @param streamOpt optional containing stream the get the characters from
@@ -48,6 +52,10 @@ public class VowelSearch {
         IStream stream = streamOpt.get();
         while(stream.hasNext()) {
             char c = stream.getNext();
+
+            if (!isValidChar(c)) {
+                continue;
+            }
 
             triplet[0] = triplet[1];
             triplet[1] = triplet[2];
