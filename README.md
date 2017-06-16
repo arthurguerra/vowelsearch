@@ -34,3 +34,9 @@ For more information about the dependencies required by this project, please, ch
 After cloning the project repository, run:
 
     mvn test
+
+## Run Application
+
+To run the application, do:
+
+    mvn exec:java -Dexec.mainClass="vowel.stream.app.Main" -Dexec.args="aAbBABacafe"
